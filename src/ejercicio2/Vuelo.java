@@ -10,19 +10,14 @@ public class Vuelo {
 	private String id;
 	private LocalDateTime horaSalida;
 	private LocalDateTime duracion;
-	private LocalDateTime horaLlegada;
-	
-	
-	
+	private LocalDateTime horaLlegada;	
 
 
 	public Vuelo(LocalDateTime horaSalida, LocalDateTime duracion) {
 		super();
 		this.horaSalida = horaSalida;
 		this.duracion = duracion;
-	}
-	
-	
+	}	
 	
 
 	public String getId() {
@@ -30,13 +25,9 @@ public class Vuelo {
 	}
 
 
-
-
 	public void setId(String id) {
 		this.id = id;
 	}
-
-
 
 
 	public LocalDateTime getHoraSalida() {
@@ -44,13 +35,9 @@ public class Vuelo {
 	}
 
 
-
-
 	public void setHoraSalida(LocalDateTime horaSalida) {
 		this.horaSalida = horaSalida;
 	}
-
-
 
 
 	public LocalDateTime getDuracion() {
@@ -58,13 +45,9 @@ public class Vuelo {
 	}
 
 
-
-
 	public void setDuracion(LocalDateTime duracion) {
 		this.duracion = duracion;
 	}
-
-
 
 
 	public LocalDateTime getHoraLlegada() {
@@ -72,13 +55,9 @@ public class Vuelo {
 	}
 
 
-
-
 	public void setHoraLlegada(LocalDateTime horaLlegada) {
 		this.horaLlegada = horaLlegada;
 	}
-
-
 
 
 	@Override
@@ -90,18 +69,20 @@ public class Vuelo {
 
 
 
-	private StringBuilder acortarNombre(StringBuilder nombreCompania) {
-		nombreCompania.substring(0, 2);
-		return nombreCompania;
+	public String acortarNombre(String nombreCompania) {
+		
+		return nombreCompania.subSequence(0, 3).toString();
+		
 	}
 	
-	private int generarNumero () {
+	public int generarNumero () {
 		Random num = new Random (System.nanoTime());
 		return num.nextInt(9999-1000+1)-1000;
 	}
 	
-	public void asignarCodigo (StringBuilder nombreCompania) {
-		StringBuilder newId = acortarNombre(nombreCompania).append(generarNumero());		
+	public void asignarCodigo (String nombreCompania) {
+		StringBuilder newId = new StringBuilder(acortarNombre(nombreCompania));
+		newId.append(generarNumero());
 		id = newId.toString();
 	}
 	
