@@ -24,17 +24,22 @@ public class Principal {
 		
 		
 		System.out.println(sec.alumnoNombre("Luis"));
-		sec.alumnoNombre2();
+		sec.mostrarAlumno1();
 		
-		System.out.println(sec.nombreEmpiezaPor("A"));
+		
+		System.out.println(sec.nombreEmpiezaPor('A'));
 		
 		System.out.println(sec.nAlumnos());
 		
+		System.out.println(sec.nombreEmpiezaPor2("A"));
+		
 		System.out.println(sec.notaMayor9("DAM"));
 		
-		System.out.println(sec.tresPrimeors());
+		System.out.println(sec.tresPrimeros());
 		
 		sec.menorEdad();
+		
+		sec.mostrarAlumnoMas9("DAM");
 	}
 	
 	
