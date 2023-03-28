@@ -1,5 +1,6 @@
 package ejercicio2;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -56,5 +57,19 @@ public class Aeropuerto {
 		.filter(v->v.getId().equalsIgnoreCase(Id))
 		.forEach(System.out::println);
 	}
+	
+	public boolean comprobarConcurrencia (LocalDateTime hora) {
+		return listaVuelos.stream()
+		.anyMatch(a->a.getHoraLlegada().getHour()==hora.getHour());
+	}
+	
+	public void horaCodiga(LocalDateTime hora) {
+		if(comprobarConcurrencia(hora))
+			System.out.println("Hora ya existente");
+		else
+			System.out.println("Hora introducida");
+	}
+	
+	
 
 }
